@@ -8,6 +8,7 @@ public class Pizza {
     private boolean cheeseAdded = false;
     private boolean toppingAdded = false;
     private boolean takeAway = false;
+    private boolean billDone = false;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -71,7 +72,11 @@ public class Pizza {
     }
 
     public String getBill(){
-        bill += "Total Price: " + price +"\n";
-        return this.bill;
+        if(!billDone){
+            bill += "Total Price: " + price +"\n";
+            billDone = true;
+            return this.bill;
+        }
+        return "";
     }
 }
