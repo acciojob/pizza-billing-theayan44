@@ -20,6 +20,7 @@ public class Pizza {
 
     public void setPrice(int price) {
         this.price = price;
+        bill = "Base Price Of The Pizza: " + price + "\n";
     }
 
 //    public Boolean getVeg() {
@@ -42,16 +43,21 @@ public class Pizza {
         if(!cheeseAdded){
             price += 80;
             cheeseAdded = true;
+            bill += "Extra Cheese Added: 80\n";
         }
     }
 
     public void addExtraToppings(){
         addExtraCheese();
         if(!toppingAdded){
-            if(isVeg)
+            if(isVeg) {
                 price += 70;
-            else
+                bill += "Extra Toppings Added: 70\n";
+            }
+            else {
                 price += 120;
+                bill += "Extra Toppings Added: 120\n";
+            }
             toppingAdded = true;
         }
     }
@@ -60,11 +66,12 @@ public class Pizza {
         if(!takeAway){
             price += 20;
             takeAway = true;
+            bill += "Paperbag Added: 20\n";
         }
     }
 
     public String getBill(){
-        bill = "Total Price: " + price +"\n";
+        bill += "Total Price: " + price +"\n";
         return this.bill;
     }
 }
